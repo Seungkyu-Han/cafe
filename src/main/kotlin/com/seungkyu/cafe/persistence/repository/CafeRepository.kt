@@ -8,5 +8,7 @@ interface CafeRepository {
 
     fun findAll(): List<CafeEntity>
 
+    fun findByName(name: String): CafeEntity
+
     fun existsById(id: String): Boolean
 }

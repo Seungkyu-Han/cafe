@@ -7,4 +7,6 @@ interface MenuRepository {
     fun save(menuEntity: MenuEntity): MenuEntity
 
     fun findAllByCafeId(cafeId: String): List<MenuEntity>
+
+    fun deleteAllByCafeId(cafeId: String)
 }

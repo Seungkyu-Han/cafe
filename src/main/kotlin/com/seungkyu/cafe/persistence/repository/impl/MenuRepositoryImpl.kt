@@ -17,4 +17,8 @@ class MenuRepositoryImpl: MenuRepository {
     override fun findAllByCafeId(cafeId: String): List<MenuEntity> {
         return menus.filter { it.cafeId == cafeId }
     }
+
+    override fun deleteAllByCafeId(cafeId: String) {
+        menus.removeIf { it.cafeId == cafeId }
+    }
 }

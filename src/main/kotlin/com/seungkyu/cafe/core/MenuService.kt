@@ -4,7 +4,9 @@ import com.seungkyu.cafe.persistence.entity.MenuEntity
 
 interface MenuService {
 
-    fun save(name: String, img: String, cafeId: String): MenuEntity
+    fun save(name: String, img: String, cafeName: String): MenuEntity
 
-    fun findByCafeId(cafeId: String): List<MenuEntity>
+    fun findByCafeName(cafeName: String): List<MenuEntity>
+
+    fun deleteByCafeName(cafeName: String)
 }

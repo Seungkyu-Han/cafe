@@ -17,7 +17,7 @@ class CafeController(
 
     @PostMapping
     fun create(@RequestBody createCafeDto: CreateCafeDto): CafeEntity{
-        return cafeService.save(name = createCafeDto.name)
+        return cafeService.save(name = createCafeDto.name, img = createCafeDto.img)
     }
 
     @GetMapping

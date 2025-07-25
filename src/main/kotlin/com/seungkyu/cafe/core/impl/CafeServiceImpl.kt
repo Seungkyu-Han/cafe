@@ -10,8 +10,8 @@ class CafeServiceImpl(
     private val cafeRepository: CafeRepository
 ): CafeService{
 
-    override fun save(name: String): CafeEntity {
-        val cafeEntity = CafeEntity(name = name)
+    override fun save(name: String, img: String): CafeEntity {
+        val cafeEntity = CafeEntity(name = name, img = img)
         return cafeRepository.save(cafeEntity)
     }
 

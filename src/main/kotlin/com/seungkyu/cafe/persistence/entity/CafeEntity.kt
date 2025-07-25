@@ -5,5 +5,7 @@ import java.util.UUID
 data class CafeEntity(
     val id: String = UUID.randomUUID().toString(),
 
-    val name: String
+    val name: String,
+
+    val img: String
 )
