@@ -5,6 +5,7 @@ import com.seungkyu.cafe.persistence.entity.MenuEntity
 import com.seungkyu.cafe.presentation.dto.CreateMenuDto
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -22,9 +23,9 @@ class MenuController(
         return menuService.save(name = createMenuDto.name, img = createMenuDto.img, cafeName = createMenuDto.cafeName)
     }
 
-    @GetMapping()
-    fun getAll(@RequestParam cafeName: String): List<MenuEntity>{
-        return menuService.findByCafeName(cafeName)
+    @GetMapping("/{cafeId}")
+    fun getAll(@PathVariable cafeId: String): List<MenuEntity>{
+        return menuService.findByCafeId(cafeId)
     }
 
     @DeleteMapping()

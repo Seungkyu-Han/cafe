@@ -6,7 +6,7 @@ interface MenuService {
 
     fun save(name: String, img: String, cafeName: String): MenuEntity
 
-    fun findByCafeName(cafeName: String): List<MenuEntity>
+    fun findByCafeId(cafeId: String): List<MenuEntity>
 
     fun deleteByCafeName(cafeName: String)
 }

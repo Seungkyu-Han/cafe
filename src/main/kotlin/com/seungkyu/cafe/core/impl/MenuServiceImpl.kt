@@ -4,6 +4,7 @@ import com.seungkyu.cafe.core.MenuService
 import com.seungkyu.cafe.persistence.entity.MenuEntity
 import com.seungkyu.cafe.persistence.repository.CafeRepository
 import com.seungkyu.cafe.persistence.repository.MenuRepository
+import org.apache.coyote.BadRequestException
 import org.springframework.stereotype.Service
 
 @Service
@@ -22,9 +23,10 @@ class MenuServiceImpl(
         return menuRepository.save(menuEntity)
     }
 
-    override fun findByCafeName(cafeName: String): List<MenuEntity> {
-        val cafe = cafeRepository.findByName(name = cafeName)
-        return menuRepository.findAllByCafeId(cafeId = cafe.id)
+    override fun findByCafeId(cafeId: String): List<MenuEntity> {
+        if(!cafeRepository.existsById(cafeId))
+            throw BadRequestException()
+        return menuRepository.findAllByCafeId(cafeId = cafeId)
     }
 
     override fun deleteByCafeName(cafeName: String) {
